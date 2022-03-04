@@ -5,7 +5,7 @@ name: Deploy for a workflow
 on:
   workflow_call:
     inputs:
-      username:
+      azure_app:
         required: true
         type: string
     secrets:
@@ -26,6 +26,6 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        app-name: ${{ inputs.azure_app }}
         publish-profile: ${{ secrets.DOTNET_WEB_APP }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
