@@ -51,7 +51,7 @@ jobs:
     ##environment: production
     uses: NisargShah1410/reusable_workflow/.github/workflows/deploy.yml@main
     with:
-      azure_app: ${{ env.AZURE_WEBAPP_NAME }}
+      azure_app: 'toolkitdemo-dotnetcore'
     secrets:
       token: ${{ secrets.DOTNET_WEB_APP }}
 
