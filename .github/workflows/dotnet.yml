@@ -47,11 +47,9 @@ jobs:
    
   reusable_workflow_job:
     needs: build
-    ##runs-on: ubuntu-latest
-    ##environment: production
     uses: NisargShah1410/reusable_workflow/.github/workflows/deploy.yml@main
     with:
-      azure_app: 'toolkitdemo-dotnetcore'
+      azure_app: ${{ env.AZURE_WEBAPP_NAME }}
     secrets:
       token: ${{ secrets.DOTNET_WEB_APP }}
 
