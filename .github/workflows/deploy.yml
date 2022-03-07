@@ -9,7 +9,7 @@ on:
         required: true
         type: string
     secrets:
-      envPAT:
+      token:
         required: true
         
 jobs:
@@ -28,4 +28,4 @@ jobs:
       with:
         app-name: ${{ inputs.azure_app }}
         publish-profile: ${{ secrets.DOTNET_WEB_APP }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        package: .
