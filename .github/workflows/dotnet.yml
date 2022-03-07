@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses: ./.github/workflows/deploy.yml
+      - uses: NisargShah1410/reusable_workflow/.github/workflows/deploy.yml@main
         with:
           azure_app: ${{ env.AZURE_WEBAPP_NAME }}
           token: ${{ secrets.DOTNET_WEB_APP }}
