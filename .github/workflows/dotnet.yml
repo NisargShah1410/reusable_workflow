@@ -14,6 +14,17 @@ env:
 
 
 jobs:
+  
+  reusable_workflow_job:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: NisargShah1410/reusable_workflow/.github/workflows/deploy.yml@main
+        with:
+          azure_app: ${{ env.AZURE_WEBAPP_NAME }}
+          token: ${{ secrets.DOTNET_WEB_APP }}
+          
   build:
     runs-on: ubuntu-latest
     
@@ -45,12 +56,4 @@ jobs:
         name: .net-app
         path: ${{env.DOTNET_ROOT}}/myapp
    
-  reusable_workflow_job:
-    needs: build
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - uses: NisargShah1410/reusable_workflow/.github/workflows/deploy.yml@main
-        with:
-          azure_app: ${{ env.AZURE_WEBAPP_NAME }}
-          token: ${{ secrets.DOTNET_WEB_APP }}
+  
