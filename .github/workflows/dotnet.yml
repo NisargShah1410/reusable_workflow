@@ -50,6 +50,7 @@ jobs:
     uses: NisargShah1410/reusable_workflow/.github/workflows/deploy.yml@main
     with:
       azure_app: 'toolkitdemo-dotnetcore'
+      path: .
     secrets:
       token: ${{ secrets.DOTNET_WEB_APP }}
 
